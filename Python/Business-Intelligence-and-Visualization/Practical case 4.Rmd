@@ -1,0 +1,279 @@
+---
+title: 'Caso practico unidad 4: Introducción a la regresión lineal'
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Eres un actuario de aseguradora y el departamento de asistencial te solicita que les indiques una formula que les permita la predicción de los gastos medicos mediante bmi del asegurado para poder realizar son business case de negocio.
+
+Para realizar el problema usaremos el siguente dataset:
+
+```{r}
+library(tidyverse)
+datos <- read_csv("insurance.csv")
+```
+
+Pasos a seguir:
+
+* a) Representación gráfica de las observaciones 
+* b) Cálculo del modelo de regresión lineal simple 
+
+## Solución:
+
+* a) Representación gráfica de las observaciones 
+
+```{r}
+library(ggplot2)
+ggplot(data = datos, mapping = aes(x = bmi, y = charges)) +
+  geom_point(color = "firebrick", size = 2) +
+  labs(title  =  'BMI', x  =  'charges') +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+cor.test(x = datos$bmi, y = datos$charges, method = "pearson")
+```
+
+
+El gráfico y el test de correlación muestran una relación lineal, de intensidad considerable (r = 0.61) y significativa (p-value = 0.0003388). Tiene sentido intentar generar un modelo de regresión lineal. 
+
+* b) Cálculo del modelo de regresión lineal simple 
+
+```{r}
+modelo1 <- lm(charges ~ bmi, datos)
+summary(modelo1)
+```
+
+El valor de R2 indica que el modelo calculado explica el 3.93% de la variabilidad.
+
+El p-value obtenido en el test F  determina que sí es significativamente superior la varianza explicada por el modelo en comparación a la varianza total.
+
+El modelo lineal generado sigue la ecuación gasto médico = 1192,94 + 393,87, que será la que pasaremos al departamento de actuarial. 
+
+## 2. Regresión lineal con una variable independiente categórica de dos categorías
+
+Para hacer este ejercicio usaremos la base de datos Salaries de la librería carData.
+
+```{r}
+library(carData)
+```
+
+
+Trabajamos en el departameto de recursos humanos de una consultora especializada en people analitycsanalytics y una empresa dedidada a la gestión de la colegíoscolegios privados nos solicita que intentemos predecir el salario de los profesores nueve meses en función de las siguientes variables para analizar una investigación para evitarla presencia de posibles problemas de discriminación. Trataremos de respoder a las siguientes preguntas:
+
+* a) ¿Influye el sexo del profesor en el salario?
+* b) ¿Influye el rango del profesor en el salario?  
+* c) Analizando toda la información disponible cuales son las variables más influyentes.
+
+## Solución:
+
+a)  ¿Influye el sexo del profesor en el salario?
+
+Queremos estimar el salario en función del sexo del profesor
+
+R realiza automáticamente la creación de variables dummy.
+
+```{r}
+modelo_sex <- lm(salary~sex, data = Salaries)
+summary(modelo_sex)
+```
+ 
+Aunque se encuentra que el coeficiente para el sexo predictor es significativo en el modelo, el sexo solo explica alrededor del 2% de la variación en el salario en este modelo. Estos resultados pueden interpretarse como que dicenen el sentido de que los miembros femeninos en esta universidad ganan, analizando un salario promedio de nueve meses de, una cantidad de 101002 mientras que los miembros masculinos ganan 14088 más.
+
+b) ¿Influye el rango del profesor en el salario?
+
+Una variable categórica con n niveles, estas son transformadas a n-1 variables.
+Cuando se tienen variables categóricas ordinales, se puede asociar a números (de menor a mayor) y usarlas de esa forma.
+
+```{r}
+modelo_rank <- lm(salary~rank, data = Salaries)
+summary(modelo_rank)
+```
+ 
+Según estos resultados, el rango contribuye al salario de nueve meses en esta universidad como era de esperar. Los profesores y los profesores asociados tienden a tener más experiencia que los profesores asistentes y, por lo tanto, ganan más de acuerdo con sus rangos docentes. El grupo de referencia en este caso son los profesores asistentes. Mientras que los profesores asistentes en esta universidad tienen un salario promedio de nueve meses de 80776 los profesores asociados ganan 13100 adicionales en comparación con los profesores asistentes. Del mismo modo, los profesores ganan 45996 adicionales en comparación con el salario de los profesores asistentes. La cantidad de variación en el salario explicada por rango en este modelo es de alrededor del 39%.
+
+c) Analizando toda la información disponible cuales son las variables más influyentes.
+
+```{r}
+modelo <- lm(salary~., data = Salaries)
+summary(modelo)
+```
+
+
+Está claro en este modelo que la variable menos estadísticamente significativa es el sexo (con un valor p de ~ 0.22).En este caso,eliminar el sexo está justificado porque es estadísticamente insignificante en el modelo.
+
+Se puede observar que considerando otras variables en el modelo, la variable sexo no es significativa asociada con la variación del salario entre individuos. Las variables significativas son: rank y discipline. Podemos concluir que el sexo no influye en la predicción de los modelos y podemos afirmar que no existe  indicio de discriminación de genero.
+
+## 3. Utiliza el  dataset Auto para los siguientes ejercicios:
+
+Para cargar el dataset utilizaremos el dataset Auto que esta precargado en el paquete ISLR.
+
+Este conjunto de datos fue tomado de la biblioteca StatLib que se mantiene en la Universidad Carnegie Mellon. El conjunto de datos se utilizó en la Exposición de la Asociación Americana de Estadística de 1983.
+
+Un marco de datos con 392 observaciones en las siguientes 9 variables.
+
+mpg
+millas por galón
+
+cylinders
+Número de cilindros entre 4 y 8.
+
+displacement
+Desplazamiento del motor (pulgadas cúbicas)
+
+horsepower
+Caballos de fuerza del motor
+
+weight
+Peso del vehículo (lb)
+
+acceleration
+Tiempo para acelerar de 0 a 60 mph (seg.)
+
+year
+Año modelo (módulo 100)
+
+origin
+Origen del automóvil (1. estadounidense, 2. europeo, 3. japonés)
+
+name
+Nombre del vehículo
+
+Los datos originales contenían 408 observaciones, pero se eliminaron 16 observaciones con valores faltantes.
+
+```{r}
+library(MASS)
+library(ISLR)
+head(Auto)
+```
+
+Vamos a utilizar este dataset para hacer lo siguiente:
+
+* a) Exploración de datos iniciales
+* b) Ajuste modelo con todas las variables
+* c) Herramientas para comprobar las asunciones del modelo
+* d) Selección de las variables mediante el método backward 
+  
+   
+## Solución:
+
+### a) Exploración de datos iniciales 
+
+Contamos con un set de datos con 9 variables (8 numéricas y 1 categórica que será nuestra variable respuesta: Direction) y 1089 observaciones.
+
+```{r}
+summary(Auto)
+str(Auto)
+pairs(Auto)
+```
+
+ A continuación estudiamos la relación entre las variables para identificar cuáles pueden ser los mejores predictores o si hay alguna con una relaci?n de tipo no lineal o detectar indicios de colinealidad. Excluimos la variable cualitativa name.
+
+```{r}
+round(cor(subset(Auto, select = -name), method = "pearson"), digits = 2)
+```
+
+Valores de correlación r pr?ximos a 1 o -1 indican una alta correlaci?n entre variables. Graficamente:
+
+```{r}
+require(corrplot)
+corrplot(round(cor(subset(Auto, select = -name)), digits = 3), type = "lower")
+```
+
+Revisando los datos anteriores llegamos a las siguientes conclusiones:
+
+* Las variables que mayor relaci?n (no siendo del todo lineal) tienen con mpg son: displacement (r = - 0,8), weight (r = - 0,83), horsepower (r = - 0,77) y cylinders (r = - 0,77), siendo la relaci?n en todas, negativa.
+
+* Se observa una alta correlación (colinealidad) entre pares de variables como displacement y cylinders (r = 0,95) y displacement y weight (r = 0,93). Con ello, posiblemente no ser?a ?til introducir ambos pares en el modelo.
+
+ * La distribución de las variables parece acercarse bastante a una distribución normal, dado el n?mero de observaciones con las que disponemos.
+
+### b) Ajuste del modelo con todas las variables
+
+En este apartado generamos el modelo con todas las variables excepto la variable name que proporciona el nombre del modelo del coche, y que en este caso es prescindible ya que no aporta informaci?n importante al modelo.
+
+```{r}
+modelo.lineal <- lm(mpg ~ . - name, data = Auto)
+summary(modelo.lineal)
+```
+
+De lo analizado hasta ahora podemos concluir que:
+
+El modelo con todas las variables introducidas como predictores es capaz de explicar el 82,15% de la varianza observada en el consumo de combustible (R2ajustado = 0,818).
+
+El p-value del modelo es significativo (2,2x10???16), por lo que podemos decir que el modelo es ?til y que existe una relaci?n entre los predictores y la variable respuesta (al menos uno de los coeficientes es distinto a 0).
+
+Los predictores que parecen tener una relaci?n estad?sticamente significativa con la variable respuesta son: displacement, weight, year y origin, a diferencia de cylinders, horsepower, y acceleration.
+
+### c) Herramientas para comprobar las asunciones del modelo
+
+
+* Gráfico Q-Q de los residuos estandarizados  
+* Gráfico heterocedasticidad
+* Gráfico de las distancias de Cook frente a los valores ajustados
+* Gráfico de los residuos frente a los valores ajustados
+
+```{r}
+par(mfrow=c(2,2))
+plot(modelo)
+```
+
+* Test de heterocedasticidad
+
+```{r}
+shapiro.test(modelo$residuals)
+```
+
+* Detectar observaciones influyentes 
+
+```{r}
+# Detecci?n y visualizaci?n de observaciones influyentes
+require(car)
+influencePlot(modelo)
+```
+
+* Detenci?n de observaciones influyentes
+
+```{r}
+cook<-cooks.distance(modelo)
+significativas<-cook>1
+significativas
+```
+
+
+* Detenci?n de outliers
+
+```{r}
+# Detecci?n de los residuos estudentizados > 3 considerados como outliers
+which(rstudent(modelo) > 3)
+outlierTest(modelo)
+```
+
+Hasta el momento podemos concluir las siguientes validaciones de bondad del modelo:
+
+El ajuste lineal parece no ser del todo preciso, ya que se observa un patr?n curvo en los residuos frente a los valores ajustados por el modelo, adem?s de que no acaban de distribuirse de forma homog?nea en torno a 0. El test de Breusch-Pagan tambi?n proporciona evidencias de falta de homocedasticidad (p-value = 0,0007).
+
+El Q-Q plot refleja que hay indicios de falta de normalidad en los residuos (aquellos de mayor valor), corroborado tambi?n por el test de hip?tesis de Shapiro Wilk (p-value = 2,32x10???6).
+
+La observaci?n 14 parece tener un nivel alto de influencia, aunque no se considere como residuo de alta magnitud. La observaci?n 323 tambi?n se considera un outlier influyente. Un an?lisis m?s exhaustivo consistir?a en excluir las observaciones y ver el impacto sobre el modelo.
+
+Los predictores cylinders y displacement muestran una alta inflaci?n de la varianza.
+
+Cuatro de las seis variables que incluye el modelo est?n muy correlacionadas.
+
+
+### d) Selección de las variables mediante el método backward 
+
+Con el método backward partimos del total de las variables y en funci?n del AIC determinamos que variables deben abandonar el modelo, el proceso finaliza cuanto el AIC de referencia es menor que el AIC de las variables regresoras del modelo. 
+
+```{r}
+modelo2<- step(modelo,direction="backward")
+modelo2
+```
+
+
