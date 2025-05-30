@@ -1,0 +1,236 @@
+---
+title: "Caso practico"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Problema muestreo
+
+5000 restaurantes han comprado fruta de temporada en el ?ltimo mes a unos grandes almacenes. Se desea tomar una muestra para estimar la compra media. Se quiere que dicha estimaci?n tenga un error m?ximo de 2 kilos y se busca un nivel de confianza del 90%. Con una muestra piloto de 40 restaurantes se ha obtenido una media de 168.5 kilos con una desviaci?n t?pica de 20.5 kilos  ?Qu? tama?o de muestra se debe escoger?
+
+Soluci?n:
+
+```{r}
+#Datos
+N=5000
+B=2 
+NS=0.10
+NC=1-NS
+k=qnorm(1-NS/2)
+s2=(20.5)^2
+D=B^2/k^2
+#formula para el tamano de muestra (cuando se estima la media)
+n=(N*s2)/((N-1)*D+s2)
+round(n)
+#El tamano de muestra es :
+```
+
+## 2. Problema muestreo
+
+De 3675 clientes registrados en una entidad financiera se escogen aleatoriamente a 147 y se les consulta si vinieron a la entidad por consejo de alguien. De los 147 encuestados 48 contestan que si vinieron por consejo de alguien. Se pide:
+
+* a) Hacer una estimaci?n de la proporci?n de las 3675 personas que vinieron por consejo de alguien.
+* b) Determinar el error en la estimaci?n asumiendo un nivel de confianza adecuado.
+* c) ?Qu? opini?n tiene sobre el valor obtenido para dicho error?
+
+Soluci?n:
+
+a) Hacer una estimaci?n de la proporci?n de las 3675 personas que vinieron por consejo de alguien.
+
+```{r}
+#datos
+N=3675
+n=147
+a=48
+NS=0.05;NC=1-NS
+k=qnorm(1-NS/2);round(k,3)#k=f(z)
+## [1] 1.96
+#inciso a
+#la proporcion de personas que vinieron por consejo de alguien.
+p=a/n
+p
+#la proporcion de personas que no vinieron por consejo de alguien.
+q=1-p
+q
+```
+
+
+
+b) Determinar el error en la estimaci?n asumiendo un nivel de confianza adecuado.
+
+
+```{r}
+#varianza de la proporcion
+vp=((p*q)/n)*((N-n)/N)
+vp
+#error de la estimacion
+B=k*sqrt(vp)
+B
+```
+
+
+
+c) ?Qu? opini?n tiene sobre el valor obtenido para dicho error?
+
+
+```{r}
+#Error relativo=B/p
+ER=(B/p)
+ER
+if ((B/p)>0.10) ("La estimacion no es confiable, se sugiere aumentar n") else ("La estimacion es confiable")
+```
+
+
+
+
+## 3. Investiga las funciones y paquetes más relevantes utilizadas en muestreo
+
+Propuesta soluci?n:
+
+https://cran.r-project.org/web/packages/survey/survey.pdf
+
+Selecci?n de muestras simples con dplyr:
+
+Una forma m?s sencilla de obtener una muestra es con el paquete dplyr.Este paquete es sumamente ?til para el tratamiento de datos, adicionalmente contiene una funci?n para obtener muestras simples de un data frame:
+
+```{r}
+#library(dplyr)
+#Muestra sin reemplazo
+#flightsmuestra2<- flights %>%
+#  sample_n(size=n,replace=FALSE)
+#head(flightsmuestra2)
+```
+
+Muestra con peso:
+
+```{r}
+#flightsmuestra3<- flights %>%
+#  sample_n(size=n,weight=Freq)
+#head(flightsmuestra3)
+```
+
+Muestra con una proporci?n de casos:
+
+```{r}
+#flightsmuestra4<- flights %>%
+#  sample_frac(0.05)
+#head(flightsmuestra4)
+#dim(flightsmuestra4)
+```
+
+Selecci?n de muestras sistem?ticas:
+
+Para el ejemplo del muestreo sistem?tico utilizaremos la funci?n sys.sample del paquete SamplingUtil.
+
+```{r}
+#library(SamplingUtil)
+#flightsmuestra5<- sys.sample(N=nrow(flights),n=300)
+#flightsmuestra5
+```
+
+
+## 4. Problema probabilidad
+
+* a) Casi todas las distribuciones admiten par?metros adicionales. Por ejemplo, la media y la desviaci?n est?ndar para la distribuci?n normal. Consulta la ayuda de dnorm para ver c?mo muestrear una variable aleatoria normal con media 100 y desviaci?n est?ndar 20. 
+
+* b) Obtengamos 10 valores aleatorios que vienen de esa poblaci?n (mu = 100, SD = 20)
+
+* c) Una vez obtenida la muestra (muestra), veamos el valor de la media y la desviaci?n est?ndar.
+
+* d) Siguiendo con rnorm tomemos una muestra m?s y dibujemos el histograma y la curva de densidad.
+
+* e)?Qu? sucede si incrementamos la muestra?
+
+Soluci?n a:
+
+```{r}
+help(Distributions)
+help(dnorm)
+curve(dnorm(x, mean = 100, sd = 20),
+      xlim = c(20, 180))
+ 
+legend("topright",
+       c(paste("mu =", 100), paste("SD =", 20)),
+       bty = "n")
+```
+
+Soluci?n b:
+
+```{r}
+# n es el n?mero de valores a obtener.
+# mu y SD son la media y la desviaci?n est?ndar
+# de la poblaci?n.
+ 
+muestra <- rnorm(10, 100, 20)
+muestra
+mean(muestra)
+sd(muestra)
+```
+
+
+Soluci?n c:
+
+```{r}
+# mu y SD son la media y la desviaci?n est?ndarde la poblaci?n.
+mean(muestra)
+sd(muestra)
+```
+
+Soluci?n d:
+
+```{r}
+# mu y SD son la media y la desviaci?n est?ndarde la poblaci?n.
+muestra2 <- rnorm(10, 100, 20)
+hist(muestra2, freq = F)
+lines(density(muestra2), lty = 2)
+```
+
+
+Soluci?n e:
+
+Si incrementamos el tama?o de la muestra nos acercaremos m?s a la realidad (la poblaci?n). Sin, embargo, y como veremos m?s adelante, no siempre es necesario tener un tama?o "grande" de la muestra para tener una buena descripci?n de la poblaci?n.
+
+El punto de esta entrada es que conozcas que se pueden obtener valores aleatorios que vienen de una poblaci?n con una distribuci?n espec?fica, en esta caso, una distribuci?n normal.
+
+
+```{r}
+muestra7 <- rnorm(100, 100, 20)
+plot(density(muestra7))
+```
+	
+
+## 5. Problema probabilidad
+
+* a) La probabilidad de venta de un producto en una tienda  es 0.52. En los pr?ximos mil clientes que entren en la tienda, vamos a calcular la probabilidad de que haya m?s de 540 ventas
+* b) ?Y si queremos pensar en las 300 de la marca??En qu? fracci?n de esas tiendas se supera la cifra de 540 ventas?
+
+Soluci?n a : 
+
+Por un lado podr?amos usar la distribuci?n binomial, con n=1000,p=0.52 para calcular ese valor. Pero lo que vamos a hacer aqu? es simular esas 1000 entradas a la tienda en  y ver cuantas ventas obtenemos.
+
+```{r}
+rbinom(n = 1, size = 1000, prob = 0.52)
+```
+	
+Soluci?n b: 
+
+
+
+```{r}
+#Usando replicate.
+numventas = 300
+(ventas = replicate(n = numventas, {
+  rbinom(n = 1, size = 1000, prob = 0.52)
+}))
+#Proporci?n
+sum(ventas > 540) / numventas
+#La probabilidad calculada con la binomial es:
+pbinom(540, size = 1000, prob = 0.52)
+```
+	
+Nota: Se podr?a hacer una simulaci?n mucho m?s "b?sica" usando rbinom

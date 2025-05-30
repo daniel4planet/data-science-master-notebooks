@@ -1,0 +1,192 @@
+---
+title: 'Caso practico Daniel González Millán'
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+Este es el último caso práctico de este módulo. Para realizarlo, ha de escogerse una BBDD para realizar una exploración estadística propia de un científico de datos. Para ello, se pueden seguir los siguientes pasos para desarrollar el proyecto:
+
+1. Definir un solo objetivo para el estudio con una BBDD. En este paso, se va a definir un objetivo de estudio (es muy importante que solo sea uno). Se definirá siguiendo estos puntos:
+  - ¿Qué problema se quiere solucionar con estos datos?
+  - ¿Qué significan las variables?
+  - ¿Qué tipo de variables hay?
+  - Definir un objetivo que ayude a solucionar el problema.
+  
+  
+El objeto de estudio será comprobar que el valor de los premios en las competiciones en los e-sports ha ido aumentando con los años y
+ver si está relacionada directamente con el número de torneos y el número de jugadores.
+
+Antes de hacer cualquier cosa, vamos a cargar el CSV, así como una serie de librerías para poder examinar el dataframe.
+```{r}
+library(DataExplorer)
+library(summarytools)
+library(visdat)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
+```{r}
+datos <- read.csv("HistoricalEsportData.csv", header = TRUE, sep = ",")
+```
+```{r}
+class(datos)
+```
+Como vemos, lo que tenemos es un DataFrame, por ello, vamos a usar la función dfSummary,
+para obtener un resúmen de todas las variables de los datos.
+
+
+```{r}
+print(dfSummary(datos), method = "render")
+```
+Como podemos observar, tenemos 5 variables distintas: dos de tipo "Character", que son la fecha y el nombre del juego,
+uno de tipo numérico, que son los ingresos y por último, dos de tipo "integer", que son el número de jugadores y el número de torneos.
+Otra cosa que podemos observar para las variables integer y numéricas es que no siguen distribuciones simétricas, tienen más valores a 
+la izquierda de la distribución que a la derecha.
+
+```{r}
+freq(datos$Date)
+```
+
+Una primera impresión que sacamos a primera vista, observando las fechas, es que cada año se han ido realizando
+más torneos de videojuegos, lo que nos puede dar una primera pista sobre si el dinero invertido en torneos se ha
+ido aumentando con los años o no.
+
+
+
+
+2. Exploración de datos:
+  - Crear los gráficos más apropiados.
+  - Interpretar los gráficos.
+  - Encontrar los primeros indicios y sacar las preconclusiones.
+  - Listar por orden de importancia los indicios que han desvelado los gráficos.
+
+```{r}
+datos$Date <- substr(datos$Date, start = 0, stop = 4)
+```
+```{r}
+datos
+```
+```{r}
+datos$Date_numeric <- as.numeric(datos$Date)
+```
+
+
+```{r}
+datos_agrupados <- group_by(datos, Date_numeric)
+```
+
+
+```{r}
+datos_agrupados
+```
+
+
+Como lo que nos interesa son los datos en global, no por videojuegos y, teniendo en cuenta que los datos están puestos por meses, 
+vamos a agrupar los datos por años para hacer nuestros estudios.
+
+```{r}
+datos_agrup_mes <- summarise(datos_agrupados, "Earnings" = sum(Earnings), "Players" = sum(Players), "Number_of_Tournaments" = sum(Tournaments))
+```
+
+```{r}
+vis_dat(datos_agrup_mes)
+```
+
+```{r}
+datos_agrup_mes
+```
+```{r}
+plot_missing(datos_agrup_mes)
+```
+
+Como podemos observar, no hay missings para ninguna de las variables que vamos a estudiar. Por lo que nuestros datos están preparados para
+poder ser estudiados.
+
+```{r}
+plot_histogram(datos_agrup_mes)
+```
+
+Todas las variables tienen asimetría positiva (es decir, tienen más observaciones a la izquierda).
+
+```{r}
+plot_boxplot(datos_agrup_mes, by="Date_numeric")
+```
+
+Parece que, conforme aumenta la variable año, aumenta el número de torneos, así como el número de jugadores y,
+por lo tanto, el dinero destinado a premios. Esto se puede observar más concreatamente con la matriz de correlación.
+
+```{r}
+plot_correlation(datos_agrup_mes)
+```
+
+Las variable de cantidad de jugadores y cantidad de torneos están muy relacionadas, lo cual, a priori, era lógico, ya que a mayor número de 
+torneos que tengamos, más personas tendríamos que tener jugando torneos.
+
+No obstante, para nuestro estudio nos enfocaremos en dos puntos:
+  - La cantidad de dinero ganado con respecto al tiempo (creemos que deberá ser creciente).
+  - La cantidad de dinero ganados respecto a la cantidad de jugadores y de torneos (igualmente deberá ser creciente y podría ser la explicación
+    de por qué cada vez see gana más dinero en los e-sports)
+
+
+3. Ahora es momento de decidir si las preconclusiones son ciertas o no. Apoyarse en la estadística inferencial y del diseño de experimentos.
+  - Encontrar las técnicas más apropiadas para corroborar las preconclusiones con la ayuda de un mapa.
+  - Diseñar la metodología de análisis.
+  - Aplicar esta metodología.
+  - Resumir los resultados.
+
+
+
+
+
+```{r}
+ggplot(data = datos_agrup_mes, mapping = aes(x = Date_numeric, y = Earnings)) +
+  geom_point(color = "firebrick", size = 2) +
+  labs(title  =  'Date vs Total Earnings', x  =  'Year') +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+```{r}
+cor.test(x = datos_agrup_mes$Date_numeric, y = datos_agrup_mes$Earnings, method = "pearson")
+```
+
+```{r}
+modelo <- lm(Earnings ~ Date_numeric, datos_agrup_mes)
+summary(modelo)
+```
+
+
+Por lo que podemos concluir que, con la evolución en los años, las ganancias por torneos en los e-sports ha ido aumentando.
+Podemos aprovechar las otras dos variables que tenemos para ahondar un poco mas en las conclusiones, ya que parece lógico
+que se hayan producido más ganancias por el creciente número de jugadores y torneos.
+Por ello, vamos a comprar el número de jugadores y el número de torneos con las ganancias:
+
+```{r}
+ggplot(data = datos_agrup_mes, mapping = aes(x = Players, y = Earnings)) +
+  geom_point(color = "firebrick", size = 2) +
+  labs(title  =  'Players vs Total Earnings', x  =  'Players') +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+```{r}
+cor.test(x = datos_agrup_mes$Players, y = datos_agrup_mes$Earnings, method = "pearson")
+```
+
+
+```{r}
+ggplot(data = datos_agrup_mes, mapping = aes(x = Number_of_Tournaments, y = Earnings)) +
+  geom_point(color = "firebrick", size = 2) +
+  labs(title  =  'Number of Tournaments vs Total Earnings', x  =  'Number of Tournaments') +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+cor.test(x = datos_agrup_mes$Number_of_Tournaments, y = datos_agrup_mes$Earnings, method = "pearson")
+```
+
+En ambos casos podemos observar unas correlaciones altísimas, por lo que podemos afirmar que el creciente número de jugadores y
+de torneos en los e-sports es lo que provoca que se haya aumentado el valor de los premios en estas competiciones.
