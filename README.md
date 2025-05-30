@@ -1,52 +1,56 @@
 # 📚 Data Science Master Notebooks
 
-This repository contains some of the notebooks developed during my Data Science Master's program. The content is organized by topic and module, covering a wide range of subjects such as data analysis, machine learning, natural language processing, deep learning, big data technologies, and more.
+This repository contains some of the notebooks developed during my Data Science Master's program. The content is organized by topic, covering data analysis, machine learning, deep learning, NLP, time series, big data technologies, and more.
+
+These notebooks form the technical foundation for my upcoming AI-based sustainability and environmental projects.
 
 ---
 
-## 🧠 Modules Overview
+## 🧠 Folder Structure
 
-Each folder corresponds to a specific module from the program. Inside each, you’ll find relevant notebooks — mostly in Python, with a few in R when applicable.
+Each folder corresponds to a subject area from the master's curriculum. Notebooks are primarily written in Python, with a few in R.
 
-- **Module 1 – Data Analytics and Visualization**
-- **Module 2 – Machine Learning**
-- **Module 3 – Deep Learning**
-- **Module 4 – Natural Language Processing**
-- **Module 5 – Time Series Analysis**
-- **Module 6 – Big Data Technology and Cloud Solutions**
+- `Big-Data-Technology-and-Cloud-Solutions/`
+- `Business-Intelligence-and-Visualization/`
+- `Data-Analytics-and-Visualization/`
+- `Deep-Learning/`
+- `Machine-Learning/`
+- `Natural-Language-Processing/`
+- `Statistical-Methods/`
+- `Time-Series-Analysis/`
+
+Language-specific folders (`/python`, `/r`) are used when applicable.
 
 ---
 
 ## 🛠️ Technologies Used
 
-- Python (Jupyter Notebooks)
-- R (RMarkdown)
-- Libraries: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
-- NLP: NLTK, spaCy
-- Deep Learning: TensorFlow, PyTorch
-- Big Data: Spark (PySpark), Hadoop, Hive
-- Cloud: AWS (theoretical examples)
+- **Languages**: Python, R
+- **Tools**: Jupyter Notebooks, RMarkdown, VS Code, Anaconda
+- **Libraries**: Pandas, NumPy, Scikit-learn, Seaborn, Matplotlib, TensorFlow, PyTorch, NLTK, spaCy
+- **Big Data**: Spark, Hadoop, Hive
+- **Cloud**: AWS (basic)
 
 ---
 
-## 📂 Dataset
+## 📂 Datasets
 
-All datasets used in the notebooks are provided in the following file:
+Some notebooks require datasets included in the following archive:
 
-🔗 [Download Data_Repository.zip](https://drive.google.com/file/d/1-XMcg04UojDVu3SW597RWN58yfQY_aBC/view?usp=drive_link)
+📥 [Download Data.zip](https://drive.google.com/file/d/1-XMcg04UojDVu3SW597RWN58yfQY_aBC/view?usp=drive_link)
 
-> After downloading, extract the contents into the root directory of the project to ensure the notebooks run correctly.
+> After downloading, extract the contents into the root folder of your local clone to ensure proper notebook execution.
 
 ---
 
-## 📌 About This Repository
+## 📌 Note
 
-This repository contains both guided exercises and individual projects created during the master's program. It serves as a foundation for more advanced and applied work I am currently developing — particularly focused on **AI for environmental and sustainability projects**.
+This repository contains both guided exercises and individual projects. It serves as a knowledge base I built during the master's, and now complements my current focus: applying AI for environmental and sustainability solutions.
 
 ---
 
 ## 📬 Contact
 
-For more information or to follow my work:
+You can reach me or follow my work at:
 
 - GitHub: [@daniel4planet](https://github.com/daniel4planet)
