@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f349905a9f06e957fdb807dd8991551b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f349905a9f06e957fdb807dd8991551b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f349905a9f06e957fdb807dd8991551b = L.map(
+                "map_f349905a9f06e957fdb807dd8991551b",
+                {
+                    center: [40.4168, -3.7038],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0680b2f8efa46720c879ab3edc3b7bcc = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0680b2f8efa46720c879ab3edc3b7bcc.addTo(map_f349905a9f06e957fdb807dd8991551b);
+        
+    
+            var marker_cluster_64c69dc7860b147248788eaed343030c = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_dc0c8edc618d3c2d4d2f8c9eef11cbbe = L.marker(
+                [40.4261706, -3.6685062],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_edb608a083d2905bc22325d3f2419565 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc532a1ed4d352d825bcaffbe9569206 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a1bf95611045183ec1d4da06b956046 = $(`<div id="html_6a1bf95611045183ec1d4da06b956046" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 445,600 €<br>             <b>€/m²:</b> 2475 €<br>             <b>Habitaciones:</b> 6<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/106650751/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_cc532a1ed4d352d825bcaffbe9569206.setContent(html_6a1bf95611045183ec1d4da06b956046);
+            
+        
+
+        marker_dc0c8edc618d3c2d4d2f8c9eef11cbbe.bindPopup(popup_cc532a1ed4d352d825bcaffbe9569206)
+        ;
+
+        
+    
+    
+            marker_dc0c8edc618d3c2d4d2f8c9eef11cbbe.bindTooltip(
+                `<div>
+                     Salamanca - Absolute Bargains (A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dc0c8edc618d3c2d4d2f8c9eef11cbbe.setIcon(icon_edb608a083d2905bc22325d3f2419565);
+            
+    
+            var marker_5ea865eaed16c8382ba33149d59cb5db = L.marker(
+                [40.4237852, -3.6715753],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_8e6f657e69287565f78ad51f94a94eea = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2129e27796027ce5d6a86a90b8fe1de7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc8f9a41bb5ae821dd81c7e8915e4542 = $(`<div id="html_cc8f9a41bb5ae821dd81c7e8915e4542" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 650,000 €<br>             <b>€/m²:</b> 3631 €<br>             <b>Habitaciones:</b> 9<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/103719385/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_2129e27796027ce5d6a86a90b8fe1de7.setContent(html_cc8f9a41bb5ae821dd81c7e8915e4542);
+            
+        
+
+        marker_5ea865eaed16c8382ba33149d59cb5db.bindPopup(popup_2129e27796027ce5d6a86a90b8fe1de7)
+        ;
+
+        
+    
+    
+            marker_5ea865eaed16c8382ba33149d59cb5db.bindTooltip(
+                `<div>
+                     Salamanca - Absolute Bargains (A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5ea865eaed16c8382ba33149d59cb5db.setIcon(icon_8e6f657e69287565f78ad51f94a94eea);
+            
+    
+            var marker_0b7fcdf0d3c06fc3bfc19ba9a2a33e68 = L.marker(
+                [40.4244497, -3.6669188],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_60e7015c0f691094f84a349d62dd5780 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e39974e6490f514328d6e4073b146dbd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af483fcd7297f4ff66c0fe10532719e9 = $(`<div id="html_af483fcd7297f4ff66c0fe10532719e9" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 475,000 €<br>             <b>€/m²:</b> 3368 €<br>             <b>Habitaciones:</b> 5<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/100875918/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_e39974e6490f514328d6e4073b146dbd.setContent(html_af483fcd7297f4ff66c0fe10532719e9);
+            
+        
+
+        marker_0b7fcdf0d3c06fc3bfc19ba9a2a33e68.bindPopup(popup_e39974e6490f514328d6e4073b146dbd)
+        ;
+
+        
+    
+    
+            marker_0b7fcdf0d3c06fc3bfc19ba9a2a33e68.bindTooltip(
+                `<div>
+                     Salamanca - Absolute Bargains (A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b7fcdf0d3c06fc3bfc19ba9a2a33e68.setIcon(icon_60e7015c0f691094f84a349d62dd5780);
+            
+    
+            var marker_a9aba9d75fb6360a50d32e7956f1c262 = L.marker(
+                [40.4244497, -3.6669188],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_d73041af208c5f09973196a2e51e2a5b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_32963cc0ff9a7526633446cf678c3c19 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_11c707e4b83bcd8967844da2d9a869de = $(`<div id="html_11c707e4b83bcd8967844da2d9a869de" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 475,000 €<br>             <b>€/m²:</b> 3368 €<br>             <b>Habitaciones:</b> 5<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/100875918/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_32963cc0ff9a7526633446cf678c3c19.setContent(html_11c707e4b83bcd8967844da2d9a869de);
+            
+        
+
+        marker_a9aba9d75fb6360a50d32e7956f1c262.bindPopup(popup_32963cc0ff9a7526633446cf678c3c19)
+        ;
+
+        
+    
+    
+            marker_a9aba9d75fb6360a50d32e7956f1c262.bindTooltip(
+                `<div>
+                     Salamanca - Absolute Bargains (A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a9aba9d75fb6360a50d32e7956f1c262.setIcon(icon_d73041af208c5f09973196a2e51e2a5b);
+            
+    
+            var marker_d6813569daedcc0a8d955bfb4ce08d91 = L.marker(
+                [40.4344341, -3.6699556],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_04a07825cc4cb9731c1e5a2489ca8894 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fcdc118bc7af118b85b8505310f6e85d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_88114fecff8ce6ac90fa003eeb3636d2 = $(`<div id="html_88114fecff8ce6ac90fa003eeb3636d2" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 1,275,000 €<br>             <b>€/m²:</b> 3171 €<br>             <b>Habitaciones:</b> 5<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/106445311/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_fcdc118bc7af118b85b8505310f6e85d.setContent(html_88114fecff8ce6ac90fa003eeb3636d2);
+            
+        
+
+        marker_d6813569daedcc0a8d955bfb4ce08d91.bindPopup(popup_fcdc118bc7af118b85b8505310f6e85d)
+        ;
+
+        
+    
+    
+            marker_d6813569daedcc0a8d955bfb4ce08d91.bindTooltip(
+                `<div>
+                     Salamanca - Absolute Bargains (A)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d6813569daedcc0a8d955bfb4ce08d91.setIcon(icon_04a07825cc4cb9731c1e5a2489ca8894);
+            
+    
+            var marker_6b3c7e748d596ba99e564f5867790cfd = L.marker(
+                [40.435939, -3.6726146],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_f8be8170204d6d502f744e243ca981bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_21de1a46e01bd48a8e4c3d02804ae6fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03a1dd9b9308b00877ea2f52065de933 = $(`<div id="html_03a1dd9b9308b00877ea2f52065de933" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 450,000 €<br>             <b>€/m²:</b> 2295 €<br>             <b>Habitaciones:</b> 3<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/106134038/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_21de1a46e01bd48a8e4c3d02804ae6fd.setContent(html_03a1dd9b9308b00877ea2f52065de933);
+            
+        
+
+        marker_6b3c7e748d596ba99e564f5867790cfd.bindPopup(popup_21de1a46e01bd48a8e4c3d02804ae6fd)
+        ;
+
+        
+    
+    
+            marker_6b3c7e748d596ba99e564f5867790cfd.bindTooltip(
+                `<div>
+                     Salamanca - Cheap in an expensive area (B)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b3c7e748d596ba99e564f5867790cfd.setIcon(icon_f8be8170204d6d502f744e243ca981bc);
+            
+    
+            var marker_9beda155748bd13890d2b4b40baf1f7a = L.marker(
+                [40.4261706, -3.6685062],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_e64fd9715c3175ce2c1774e9e857ab23 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_873b44f76b950922a55123c0da568af2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0d96c3c2de050fef843eae51ed2cb367 = $(`<div id="html_0d96c3c2de050fef843eae51ed2cb367" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 445,600 €<br>             <b>€/m²:</b> 2475 €<br>             <b>Habitaciones:</b> 6<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/106650751/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_873b44f76b950922a55123c0da568af2.setContent(html_0d96c3c2de050fef843eae51ed2cb367);
+            
+        
+
+        marker_9beda155748bd13890d2b4b40baf1f7a.bindPopup(popup_873b44f76b950922a55123c0da568af2)
+        ;
+
+        
+    
+    
+            marker_9beda155748bd13890d2b4b40baf1f7a.bindTooltip(
+                `<div>
+                     Salamanca - Cheap in an expensive area (B)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9beda155748bd13890d2b4b40baf1f7a.setIcon(icon_e64fd9715c3175ce2c1774e9e857ab23);
+            
+    
+            var marker_bece36cdf93905ada8bc2e827e4cf3af = L.marker(
+                [40.4338389, -3.6605886],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_31d1d0b1b4de34d5619db1ea2527d011 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40289a9936de96443f99aec6d7a6cf94 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd4e27d1cdd3ebebf2b29f4e14544552 = $(`<div id="html_fd4e27d1cdd3ebebf2b29f4e14544552" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 299,000 €<br>             <b>€/m²:</b> 2646 €<br>             <b>Habitaciones:</b> 3<br>             <b>Estado:</b> A reformar<br>             <a href='https://www.idealista.com/inmueble/104436782/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_40289a9936de96443f99aec6d7a6cf94.setContent(html_fd4e27d1cdd3ebebf2b29f4e14544552);
+            
+        
+
+        marker_bece36cdf93905ada8bc2e827e4cf3af.bindPopup(popup_40289a9936de96443f99aec6d7a6cf94)
+        ;
+
+        
+    
+    
+            marker_bece36cdf93905ada8bc2e827e4cf3af.bindTooltip(
+                `<div>
+                     Salamanca - Cheap in an expensive area (B)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bece36cdf93905ada8bc2e827e4cf3af.setIcon(icon_31d1d0b1b4de34d5619db1ea2527d011);
+            
+    
+            var marker_9bf173e10b84c23e0f39b289de2bb14a = L.marker(
+                [40.4216216, -3.6636464],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_5a4df44f828884bfbc0e8bbc9673d806 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_df3c26f8146dd61b1193747d2d642bcf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d28a4e3fe25e61fb5cf414d87d72c5ed = $(`<div id="html_d28a4e3fe25e61fb5cf414d87d72c5ed" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 190,000 €<br>             <b>€/m²:</b> 2714 €<br>             <b>Habitaciones:</b> 2<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/106392549/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_df3c26f8146dd61b1193747d2d642bcf.setContent(html_d28a4e3fe25e61fb5cf414d87d72c5ed);
+            
+        
+
+        marker_9bf173e10b84c23e0f39b289de2bb14a.bindPopup(popup_df3c26f8146dd61b1193747d2d642bcf)
+        ;
+
+        
+    
+    
+            marker_9bf173e10b84c23e0f39b289de2bb14a.bindTooltip(
+                `<div>
+                     Salamanca - Cheap in an expensive area (B)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9bf173e10b84c23e0f39b289de2bb14a.setIcon(icon_5a4df44f828884bfbc0e8bbc9673d806);
+            
+    
+            var marker_489822aab091c0fe4426b991d7cc682d = L.marker(
+                [40.4338852, -3.7073327],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_5688cdc3e90c4a26944f75e39fb4f3e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b361569d3648fff960c193d0f0b5141d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cdc2e37b9ee2bf3b29b5cc13640ab875 = $(`<div id="html_cdc2e37b9ee2bf3b29b5cc13640ab875" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 55,000 €<br>             <b>€/m²:</b> 625 €<br>             <b>Habitaciones:</b> 2<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/104628316/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_b361569d3648fff960c193d0f0b5141d.setContent(html_cdc2e37b9ee2bf3b29b5cc13640ab875);
+            
+        
+
+        marker_489822aab091c0fe4426b991d7cc682d.bindPopup(popup_b361569d3648fff960c193d0f0b5141d)
+        ;
+
+        
+    
+    
+            marker_489822aab091c0fe4426b991d7cc682d.bindTooltip(
+                `<div>
+                     Chamberí - Cheap in an expensive area (B)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_489822aab091c0fe4426b991d7cc682d.setIcon(icon_5688cdc3e90c4a26944f75e39fb4f3e5);
+            
+    
+            var marker_10a954375418ce7ec02ea4f7b252e618 = L.marker(
+                [40.3880797, -3.7037086],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_573acacdde7cc1fdd0c89cd7b06d947a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e748ae6a8960e95da62ad223d0550dbe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00a2761cf6a51442051b3f8bf44c16f4 = $(`<div id="html_00a2761cf6a51442051b3f8bf44c16f4" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 210,000 €<br>             <b>€/m²:</b> 1981 €<br>             <b>Habitaciones:</b> 3<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/101827180/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_e748ae6a8960e95da62ad223d0550dbe.setContent(html_00a2761cf6a51442051b3f8bf44c16f4);
+            
+        
+
+        marker_10a954375418ce7ec02ea4f7b252e618.bindPopup(popup_e748ae6a8960e95da62ad223d0550dbe)
+        ;
+
+        
+    
+    
+            marker_10a954375418ce7ec02ea4f7b252e618.bindTooltip(
+                `<div>
+                     Usera - Rental Yield (C)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_10a954375418ce7ec02ea4f7b252e618.setIcon(icon_573acacdde7cc1fdd0c89cd7b06d947a);
+            
+    
+            var marker_5976327dc1533d78b82d0102bc16bb8c = L.marker(
+                [40.4270344, -3.6381798],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_74578fce29ab267b87be3552b9faef61 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cacd3d34caa58e3dd7fef69a1e89e9a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d280b68f3442e844814510b4d1afdeb3 = $(`<div id="html_d280b68f3442e844814510b4d1afdeb3" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 270,000 €<br>             <b>€/m²:</b> 2727 €<br>             <b>Habitaciones:</b> 2<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/103177775/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_cacd3d34caa58e3dd7fef69a1e89e9a0.setContent(html_d280b68f3442e844814510b4d1afdeb3);
+            
+        
+
+        marker_5976327dc1533d78b82d0102bc16bb8c.bindPopup(popup_cacd3d34caa58e3dd7fef69a1e89e9a0)
+        ;
+
+        
+    
+    
+            marker_5976327dc1533d78b82d0102bc16bb8c.bindTooltip(
+                `<div>
+                     Ciudad Lineal - Rental Yield (C)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5976327dc1533d78b82d0102bc16bb8c.setIcon(icon_74578fce29ab267b87be3552b9faef61);
+            
+    
+            var marker_4db15b7a9fabb257c37e72daa1e2cca2 = L.marker(
+                [40.3902761, -3.6378494],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_61b46290acb0d7f8284fe817101fd985 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d3d5b81aaf5dc165624e17b4e5fb93cf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5aa8c2b636eebb2d9644f3e044104e06 = $(`<div id="html_5aa8c2b636eebb2d9644f3e044104e06" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 289,000 €<br>             <b>€/m²:</b> 2293 €<br>             <b>Habitaciones:</b> 2<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/100935499/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_d3d5b81aaf5dc165624e17b4e5fb93cf.setContent(html_5aa8c2b636eebb2d9644f3e044104e06);
+            
+        
+
+        marker_4db15b7a9fabb257c37e72daa1e2cca2.bindPopup(popup_d3d5b81aaf5dc165624e17b4e5fb93cf)
+        ;
+
+        
+    
+    
+            marker_4db15b7a9fabb257c37e72daa1e2cca2.bindTooltip(
+                `<div>
+                     Puente de Vallecas - Rental Yield (C)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4db15b7a9fabb257c37e72daa1e2cca2.setIcon(icon_61b46290acb0d7f8284fe817101fd985);
+            
+    
+            var marker_344848616e1386024094c65ba78c4546 = L.marker(
+                [40.3710408, -3.7029198],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_dbe1073ecefebe4148c13bb7c242c8db = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_944ef1b8c6a1466572a6cd37a72b6774 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0bbea7f27b153b23dbcb8ea532b71d14 = $(`<div id="html_0bbea7f27b153b23dbcb8ea532b71d14" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 220,000 €<br>             <b>€/m²:</b> 2391 €<br>             <b>Habitaciones:</b> 2<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/106675047/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_944ef1b8c6a1466572a6cd37a72b6774.setContent(html_0bbea7f27b153b23dbcb8ea532b71d14);
+            
+        
+
+        marker_344848616e1386024094c65ba78c4546.bindPopup(popup_944ef1b8c6a1466572a6cd37a72b6774)
+        ;
+
+        
+    
+    
+            marker_344848616e1386024094c65ba78c4546.bindTooltip(
+                `<div>
+                     Usera - Rental Yield (C)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_344848616e1386024094c65ba78c4546.setIcon(icon_dbe1073ecefebe4148c13bb7c242c8db);
+            
+    
+            var marker_659ba57003dfcbac1e0ab402f9028cf7 = L.marker(
+                [40.3838469, -3.6506371],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_51682d43fe82705a3aebe7677e54a171 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3010e9f4bb3854751fc46ab388832319 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57a64a21d6168ed2ce318b578a3c054a = $(`<div id="html_57a64a21d6168ed2ce318b578a3c054a" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 285,000 €<br>             <b>€/m²:</b> 2878 €<br>             <b>Habitaciones:</b> 3<br>             <b>Estado:</b> Buen estado<br>             <a href='https://www.idealista.com/inmueble/106601652/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_3010e9f4bb3854751fc46ab388832319.setContent(html_57a64a21d6168ed2ce318b578a3c054a);
+            
+        
+
+        marker_659ba57003dfcbac1e0ab402f9028cf7.bindPopup(popup_3010e9f4bb3854751fc46ab388832319)
+        ;
+
+        
+    
+    
+            marker_659ba57003dfcbac1e0ab402f9028cf7.bindTooltip(
+                `<div>
+                     Puente de Vallecas - Rental Yield (C)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_659ba57003dfcbac1e0ab402f9028cf7.setIcon(icon_51682d43fe82705a3aebe7677e54a171);
+            
+    
+            var marker_be731809a93919868253e24ceda36859 = L.marker(
+                [40.4323578, -3.6436554],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_c46be89f814c98bf466d4f70e87085b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4d418e87d02ecf17ec9a7dd692662400 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1cb822bf1f6f4e16abb1b499b6843158 = $(`<div id="html_1cb822bf1f6f4e16abb1b499b6843158" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 50,000 €<br>             <b>€/m²:</b> 704 €<br>             <b>Habitaciones:</b> 2<br>             <b>Estado:</b> A reformar<br>             <a href='https://www.idealista.com/inmueble/105306704/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_4d418e87d02ecf17ec9a7dd692662400.setContent(html_1cb822bf1f6f4e16abb1b499b6843158);
+            
+        
+
+        marker_be731809a93919868253e24ceda36859.bindPopup(popup_4d418e87d02ecf17ec9a7dd692662400)
+        ;
+
+        
+    
+    
+            marker_be731809a93919868253e24ceda36859.bindTooltip(
+                `<div>
+                     Ciudad Lineal - Renovable with potential (D)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_be731809a93919868253e24ceda36859.setIcon(icon_c46be89f814c98bf466d4f70e87085b3);
+            
+    
+            var marker_74404753c1d5426655386270c5008d66 = L.marker(
+                [40.4323578, -3.6436554],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_9d290b1b9010c62fad64d6c5cfaffffc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a65eee648faa957cf3ccca58862f30b4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af6724c9c1bc5207d4b476c29ec66a66 = $(`<div id="html_af6724c9c1bc5207d4b476c29ec66a66" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 55,000 €<br>             <b>€/m²:</b> 774 €<br>             <b>Habitaciones:</b> 2<br>             <b>Estado:</b> A reformar<br>             <a href='https://www.idealista.com/inmueble/105306704/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_a65eee648faa957cf3ccca58862f30b4.setContent(html_af6724c9c1bc5207d4b476c29ec66a66);
+            
+        
+
+        marker_74404753c1d5426655386270c5008d66.bindPopup(popup_a65eee648faa957cf3ccca58862f30b4)
+        ;
+
+        
+    
+    
+            marker_74404753c1d5426655386270c5008d66.bindTooltip(
+                `<div>
+                     Ciudad Lineal - Renovable with potential (D)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_74404753c1d5426655386270c5008d66.setIcon(icon_9d290b1b9010c62fad64d6c5cfaffffc);
+            
+    
+            var marker_4a69df49803aa2e20e0722feef656e49 = L.marker(
+                [40.4323578, -3.6436554],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_a576d3290904afa09b3adacfb2ebd857 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2dca3349894290ade2e1affb7feb1655 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7ee8bcbef362971f7975afa56a79e290 = $(`<div id="html_7ee8bcbef362971f7975afa56a79e290" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 55,000 €<br>             <b>€/m²:</b> 774 €<br>             <b>Habitaciones:</b> 2<br>             <b>Estado:</b> A reformar<br>             <a href='https://www.idealista.com/inmueble/105306704/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_2dca3349894290ade2e1affb7feb1655.setContent(html_7ee8bcbef362971f7975afa56a79e290);
+            
+        
+
+        marker_4a69df49803aa2e20e0722feef656e49.bindPopup(popup_2dca3349894290ade2e1affb7feb1655)
+        ;
+
+        
+    
+    
+            marker_4a69df49803aa2e20e0722feef656e49.bindTooltip(
+                `<div>
+                     Ciudad Lineal - Renovable with potential (D)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4a69df49803aa2e20e0722feef656e49.setIcon(icon_a576d3290904afa09b3adacfb2ebd857);
+            
+    
+            var marker_0a0b91e4c0cb5323f154f7388addf5ac = L.marker(
+                [40.4268312, -3.6397329],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_92070a51204302d74f77b4a6ce6525eb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ffea6b27984b4edd813209cff51e3223 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7764d4f6c1d967d113b68efe14b03154 = $(`<div id="html_7764d4f6c1d967d113b68efe14b03154" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 392,000 €<br>             <b>€/m²:</b> 1104 €<br>             <b>Habitaciones:</b> 5<br>             <b>Estado:</b> A reformar<br>             <a href='https://www.idealista.com/inmueble/105960846/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_ffea6b27984b4edd813209cff51e3223.setContent(html_7764d4f6c1d967d113b68efe14b03154);
+            
+        
+
+        marker_0a0b91e4c0cb5323f154f7388addf5ac.bindPopup(popup_ffea6b27984b4edd813209cff51e3223)
+        ;
+
+        
+    
+    
+            marker_0a0b91e4c0cb5323f154f7388addf5ac.bindTooltip(
+                `<div>
+                     Ciudad Lineal - Renovable with potential (D)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0a0b91e4c0cb5323f154f7388addf5ac.setIcon(icon_92070a51204302d74f77b4a6ce6525eb);
+            
+    
+            var marker_4d5ddb6001c40b3ea7534587153e8be6 = L.marker(
+                [40.429259, -3.6509154],
+                {
+}
+            ).addTo(marker_cluster_64c69dc7860b147248788eaed343030c);
+        
+    
+            var icon_bf86db03176fd0c249159212b26728fa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40e8739c5ad79d95d38167881499455c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_38ae1fa9ef14767dada99d545810a623 = $(`<div id="html_38ae1fa9ef14767dada99d545810a623" style="width: 100.0%; height: 100.0%;">             <b>Precio:</b> 180,000 €<br>             <b>€/m²:</b> 1118 €<br>             <b>Habitaciones:</b> 0<br>             <b>Estado:</b> A reformar<br>             <a href='https://www.idealista.com/inmueble/102669935/' target='_blank'>Ver anuncio</a>             </div>`)[0];
+                popup_40e8739c5ad79d95d38167881499455c.setContent(html_38ae1fa9ef14767dada99d545810a623);
+            
+        
+
+        marker_4d5ddb6001c40b3ea7534587153e8be6.bindPopup(popup_40e8739c5ad79d95d38167881499455c)
+        ;
+
+        
+    
+    
+            marker_4d5ddb6001c40b3ea7534587153e8be6.bindTooltip(
+                `<div>
+                     Ciudad Lineal - Renovable with potential (D)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4d5ddb6001c40b3ea7534587153e8be6.setIcon(icon_bf86db03176fd0c249159212b26728fa);
+            
+    
+            marker_cluster_64c69dc7860b147248788eaed343030c.addTo(map_f349905a9f06e957fdb807dd8991551b);
+        
+    
+            tile_layer_0680b2f8efa46720c879ab3edc3b7bcc.addTo(map_f349905a9f06e957fdb807dd8991551b);
+        
+    
+                marker_dc0c8edc618d3c2d4d2f8c9eef11cbbe.setIcon(icon_edb608a083d2905bc22325d3f2419565);
+            
+    
+                marker_5ea865eaed16c8382ba33149d59cb5db.setIcon(icon_8e6f657e69287565f78ad51f94a94eea);
+            
+    
+                marker_0b7fcdf0d3c06fc3bfc19ba9a2a33e68.setIcon(icon_60e7015c0f691094f84a349d62dd5780);
+            
+    
+                marker_a9aba9d75fb6360a50d32e7956f1c262.setIcon(icon_d73041af208c5f09973196a2e51e2a5b);
+            
+    
+                marker_d6813569daedcc0a8d955bfb4ce08d91.setIcon(icon_04a07825cc4cb9731c1e5a2489ca8894);
+            
+    
+                marker_6b3c7e748d596ba99e564f5867790cfd.setIcon(icon_f8be8170204d6d502f744e243ca981bc);
+            
+    
+                marker_9beda155748bd13890d2b4b40baf1f7a.setIcon(icon_e64fd9715c3175ce2c1774e9e857ab23);
+            
+    
+                marker_bece36cdf93905ada8bc2e827e4cf3af.setIcon(icon_31d1d0b1b4de34d5619db1ea2527d011);
+            
+    
+                marker_9bf173e10b84c23e0f39b289de2bb14a.setIcon(icon_5a4df44f828884bfbc0e8bbc9673d806);
+            
+    
+                marker_489822aab091c0fe4426b991d7cc682d.setIcon(icon_5688cdc3e90c4a26944f75e39fb4f3e5);
+            
+    
+                marker_10a954375418ce7ec02ea4f7b252e618.setIcon(icon_573acacdde7cc1fdd0c89cd7b06d947a);
+            
+    
+                marker_5976327dc1533d78b82d0102bc16bb8c.setIcon(icon_74578fce29ab267b87be3552b9faef61);
+            
+    
+                marker_4db15b7a9fabb257c37e72daa1e2cca2.setIcon(icon_61b46290acb0d7f8284fe817101fd985);
+            
+    
+                marker_344848616e1386024094c65ba78c4546.setIcon(icon_dbe1073ecefebe4148c13bb7c242c8db);
+            
+    
+                marker_659ba57003dfcbac1e0ab402f9028cf7.setIcon(icon_51682d43fe82705a3aebe7677e54a171);
+            
+    
+                marker_be731809a93919868253e24ceda36859.setIcon(icon_c46be89f814c98bf466d4f70e87085b3);
+            
+    
+                marker_74404753c1d5426655386270c5008d66.setIcon(icon_9d290b1b9010c62fad64d6c5cfaffffc);
+            
+    
+                marker_4a69df49803aa2e20e0722feef656e49.setIcon(icon_a576d3290904afa09b3adacfb2ebd857);
+            
+    
+                marker_0a0b91e4c0cb5323f154f7388addf5ac.setIcon(icon_92070a51204302d74f77b4a6ce6525eb);
+            
+    
+                marker_4d5ddb6001c40b3ea7534587153e8be6.setIcon(icon_bf86db03176fd0c249159212b26728fa);
+            
+    
+            marker_cluster_64c69dc7860b147248788eaed343030c.addTo(map_f349905a9f06e957fdb807dd8991551b);
+        
+</script>
+</html>
